@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, maximum-scale=1">
+    <title>查询结果</title>
+    <style>
+        body{
+             height:100%;
+             width:100%;
+             font: 14px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;
+             background-image: url(5.png);
+             background-size: cover;
+             background-repeat: no-repeat;
+
+        }
+              
+        .container img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .container .time {
+            position: fixed;
+            font-size: 27px;
+            color: rgb(135, 179, 244);
+            font-weight: 600;
+            width: 230px;
+            left: 51%;
+            margin-left: -99px;
+            top: 28.5%;
+        }
+        
+        .container .name {
+            font-size: 20px;
+            font-weight: 600;
+            width: 140px;
+            position: fixed;
+            color: white;
+            left: 91.5px;
+            top: 25px;
+            border: none;
+            background-color: transparent;
+        }
+        
+        .container .location {
+            position: fixed;
+            font-size: 16px;
+            color: rgb(135, 135, 135);
+            width: 220px;
+            left: 38%;
+            margin-left: -55px;
+            top: 70.5%;
+            border: none;
+            background-color: transparent;
+        }
+        
+        .name::-webkit-input-placeholder {
+            /* WebKit browsers */
+            color: white;
+        }
+        
+        .name:-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            color: white;
+        }
+        
+        .name::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            color: white;
+        }
+        
+        .name:-ms-input-placeholder {
+            /* Internet Explorer 10+ */
+            color: white;
+        }
+        
+        .location::-webkit-input-placeholder {
+            /* WebKit browsers */
+            /*color: rgb(172, 172, 172);*/
+            color: rgb(73, 201, 93);
+        }
+        
+        .location:-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            color: rgb(73, 201, 93);
+        }
+        
+        .location::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            color: rgb(73, 201, 93);
+        }
+        
+        .location:-ms-input-placeholder {
+            /* Internet Explorer 10+ */
+            color: rgb(73, 201, 93);
+        }
+    </style>
+</head>
+
+    <body>
+
+        <!-- <img src="6.png" > -->
+        <div class="container">
+        <label class="name">张晓扬【学生】 </label>
+        <input type="text" placeholder="门岗-本部2号门（进门码）" class="location">
+        <span class="time"></span>
+
+    </div>
+
+    <script>
+        let time = document.querySelector('.time');
+
+        setInterval(gettime, 1000);
+
+        function gettime() {
+            var today = new Date();
+            var y = today.getFullYear();
+            var m = today.getMonth();
+            var d = today.getDate();
+            var h = today.getHours();
+            var i = today.getMinutes();
+            m = m + 1;
+            d = checkTime(d);
+            m = checkTime(m);
+            i = checkTime(i);
+            time.innerHTML =  m + "月" + d + "日" + "  " + " "+ h + ":" + i;
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    </script>
+</body>
+
+</html>
